@@ -66,7 +66,7 @@ public class LoginPage {
 //    @FindBy(css = ".enterWithNumberArea .m_login_checkPin_button")
     private static final SelenideElement verifyCodeButton = $(".enterWithNumberArea .m_login_checkPin_button");
 
-    public static MainPage performLogin() {
+    public MainPage performLogin() {
         loginButtonYellow.click();
         enterWithSmsCodeButton.click();
         phoneNumberField.setValue(System.getProperty("phoneNumber"));
