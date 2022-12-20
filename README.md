@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/mqithpvlbffsi64j?svg=true)](https://ci.appveyor.com/project/granegoro/books-beeline)

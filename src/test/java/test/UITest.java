@@ -26,6 +26,6 @@ public class UITest {
     public void shouldLoginWithTestCredentials() {
         var loginPage = open(System.getProperty("sut.url"), LoginPage.class);
         var mainPage = loginPage.performLogin();
-        
+
     }
 }
