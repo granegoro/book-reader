@@ -3,7 +3,7 @@ plugins {
     id 'io.qameta.allure' version '2.9.6'
 }
 
-group 'ru.netology'
+group 'ru.beeline.books'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 11
@@ -26,7 +26,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
     testImplementation 'com.codeborne:selenide:6.10.1'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
-    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'org.jetbrains:annotations:23.1.0'
     testImplementation 'io.rest-assured:rest-assured:5.3.0'
     testImplementation 'io.qameta.allure:allure-selenide:2.20.0'
     compileOnly 'org.projectlombok:lombok:1.18.24'
@@ -37,6 +37,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
-//    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
-//    systemProperty 'selenide.browser', System.getProperty('selenide.browser', 'firefox')
+    systemProperty 's systemProelenide.headless', System.getProperty('selenide.headless')
+    systemProperty 'sut.url', System.getProperty('sut.url', 'https://books.beeline.ru/login.php#app')
+    systemProperty 'phoneNumber', System.getProperty('phoneNumber', '3134383831')
+    systemProperty 'code', System.getProperty('code', '2021')
+
 }
