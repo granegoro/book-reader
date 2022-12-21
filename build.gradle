@@ -41,5 +41,4 @@ test {
     systemProperty 'sut.url', System.getProperty('sut.url', 'https://books.beeline.ru/login.php#app')
     systemProperty 'phoneNumber', System.getProperty('phoneNumber', '3134383831')
     systemProperty 'code', System.getProperty('code', '2021')
-
 }

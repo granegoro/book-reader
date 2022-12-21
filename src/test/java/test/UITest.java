@@ -1,16 +1,86 @@
 package test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import page.LoginPage;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class UITest {
 
-    @Test
-    public void shouldLoginWithTestCredentials() {
-        var loginPage = open(System.getProperty("sut.url"), LoginPage.class);
-        var mainPage = loginPage.performLogin();
-
-
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
+
+    String sut = System.getProperty("sut.url");
+
+    @Test
+    public void shouldSuccessfullyLoginViaYellowButtonWithTestCredentials() {
+        var loginPage = open(sut, LoginPage.class);
+        var mainPage = loginPage.performLoginViaYellowButton();
+    }
+
+    @Test
+    public void shouldSuccessfullyLoginViaHeaderButtonWithTestCredentials() {
+        var loginPage = open(sut, LoginPage.class);
+        var mainPage = loginPage.performLoginViaHeaderButton();
+    }
+
+    @Test
+    public void shouldSuccessfullySubscribeWithTestCredentials() {
+        var loginPage = open(sut, LoginPage.class);
+        var mainPage = loginPage.performSubscription();
+    }
+
+    @Test
+    public void shouldFindInsufficientPhoneNumberError() {
+        var loginPage = open(sut, LoginPage.class);
+        loginPage.findInsufficientPhoneNumberError();
+    }
+
+    @Test
+    public void shouldFindNotBeelinePhoneNumberError() {
+        var loginPage = open(sut, LoginPage.class);
+        loginPage.findNotBeelinePhoneNumberError();
+    }
+
+    @Test
+    public void shouldFindIncorrectCodeError() {
+        var loginPage = open(sut, LoginPage.class);
+        loginPage.findIncorrectCodeError();
+    }
+
+    @Test
+    public void shouldOpenPolicyPopup() {
+        var loginPage = open(sut, LoginPage.class);
+        loginPage.checkLoginPolicy();
+    }
+
+    @Test
+    public void checkInAppStore() {
+        var loginPage = open(sut, LoginPage.class);
+        loginPage.pushAppStoreButton();
+    }
+
+    @Test
+    public void checkInAppGallery() {
+        var loginPage = open(sut, LoginPage.class);
+        loginPage.pushAppGalleryButton();
+    }
+
+    @Test
+    public void checkInRuStore() {
+        var loginPage = open(sut, LoginPage.class);
+        loginPage.pushRuStoreButton();
+    }
+
 }
