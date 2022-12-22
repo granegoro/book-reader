@@ -15,9 +15,10 @@ public class MainPage {
     private static final SelenideElement sidebarButton = $("#header_userName");
     private static final SelenideElement logoutButton = $("#m_userSidebar .m_userSidebar_userInfo_data h4");
 
-    public void logOut() {
+    public LoginPage logOut() {
         sidebarButton.click();
         logoutButton.click();
+        return new LoginPage();
     }
 
 

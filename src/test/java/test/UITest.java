@@ -1,8 +1,10 @@
 package test;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import page.LoginPage;
@@ -21,6 +23,12 @@ public class UITest {
         SelenideLogger.removeListener("allure");
     }
 
+    @AfterEach
+    void refreshPage() {
+        Selenide.refresh();
+    }
+
+
     String sut = System.getProperty("sut.url");
 
     @Test
@@ -35,7 +43,6 @@ public class UITest {
         var loginPage = open(sut, LoginPage.class);
         var mainPage = loginPage.performLoginViaYellowButton();
         mainPage.logOut();
-
     }
 
     @Test

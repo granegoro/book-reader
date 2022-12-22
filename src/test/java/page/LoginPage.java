@@ -117,7 +117,6 @@ public class LoginPage {
         loginButtonYellow.click();
         loginPolicyLink.click();
         policyPanel.shouldBe(visible);
-        refresh();
     }
 
     public void pushAppGalleryButton() {
