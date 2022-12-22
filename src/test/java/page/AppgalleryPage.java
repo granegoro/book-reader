@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class AppgalleryPage {
 
-    private static final SelenideElement storeHeading = $(byText("AppGallery"));
+//    private static final SelenideElement storeHeading = $(byText("AppGallery"));
     private static final SelenideElement appHeading = $(byText("билайн книги и аудиокниги"));
 
-    public AppgalleryPage() {
+    public void checkHeading() {
 //        storeHeading.shouldBe(visible, Duration.ofSeconds(10));
         appHeading.shouldBe(visible, Duration.ofSeconds(10));
     }

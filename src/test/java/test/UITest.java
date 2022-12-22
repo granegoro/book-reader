@@ -24,21 +24,15 @@ public class UITest {
     String sut = System.getProperty("sut.url");
 
     @Test
-    public void shouldSuccessfullyLoginViaYellowButtonWithTestCredentials() {
-        var loginPage = open(sut, LoginPage.class);
-        var mainPage = loginPage.performLoginViaYellowButton();
-    }
-
-    @Test
-    public void shouldSuccessfullyLoginViaHeaderButtonWithTestCredentials() {
-        var loginPage = open(sut, LoginPage.class);
-        var mainPage = loginPage.performLoginViaHeaderButton();
-    }
-
-    @Test
     public void shouldSuccessfullySubscribeWithTestCredentials() {
         var loginPage = open(sut, LoginPage.class);
         var mainPage = loginPage.performSubscription();
+    }
+
+    @Test
+    public void shouldSuccessfullyLoginViaYellowButtonWithTestCredentials() {
+        var loginPage = open(sut, LoginPage.class);
+        var mainPage = loginPage.performLoginViaYellowButton();
     }
 
     @Test
@@ -66,21 +60,26 @@ public class UITest {
     }
 
     @Test
-    public void checkInAppStore() {
-        var loginPage = open(sut, LoginPage.class);
-        loginPage.pushAppStoreButton();
-    }
-
-    @Test
     public void checkInAppGallery() {
         var loginPage = open(sut, LoginPage.class);
         loginPage.pushAppGalleryButton();
     }
 
-    @Test
-    public void checkInRuStore() {
-        var loginPage = open(sut, LoginPage.class);
-        loginPage.pushRuStoreButton();
-    }
+//    @Test
+//    public void checkInAppStore() {
+//        var loginPage = open(sut, LoginPage.class);
+//        loginPage.pushAppStoreButton();
+//    }
+//
+//    @Test
+//    public void checkInRuStore() {
+//        var loginPage = open(sut, LoginPage.class);
+//        loginPage.pushRuStoreButton();
+//    }
+//    @Test
+//    public void shouldSuccessfullyLoginViaHeaderButtonWithTestCredentials() {
+//        var loginPage = open(sut, LoginPage.class);
+//        var mainPage = loginPage.performLoginViaHeaderButton();
+//    }
 
 }
