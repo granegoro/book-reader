@@ -11,9 +11,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage {
 
-//    private static final ElementsCollection loginMenuButtons = $$(".container .login_menu ul ");
+    private static final ElementsCollection loginMenuButtons = $$(".container .login_menu ul li");
 //    private static final SelenideElement appButtonHeader = loginMenuButtons.findBy(text("Приложение"));
-//    private static final SelenideElement subscribeButtonHeader = loginMenuButtons.findBy(text("Подписка"));
+    private static final SelenideElement subscribeButtonHeader = loginMenuButtons.get(1);
 //    private static final ElementsCollection header =
 //        $$(byText("Вход"));
 //    private static final SelenideElement loginHeader = header.get(4);
@@ -28,7 +28,7 @@ public class LoginPage {
     private static final SelenideElement ruStoreButton = appIcons.get(3);
 
     private static final SelenideElement subscribeButtonYellow =
-            $("#login_subscribe_section .container .login_button_bottom").$(byText("ПОДПИСАТЬСЯ"));
+            $(byText("ПОДПИСАТЬСЯ"));
 
     private static final SelenideElement enterWithSmsCodeButton =
             $(".authTypeSelectArea .m_logIn_enterWithNumber_button");
@@ -79,6 +79,7 @@ public class LoginPage {
 //    }
 
     public MainPage performSubscription() {
+        subscribeButtonHeader.click();
         subscribeButtonYellow.click();
         performLogin();
         successfulSubscriptionMessage.shouldBe(visible);
@@ -116,6 +117,7 @@ public class LoginPage {
         loginButtonYellow.click();
         loginPolicyLink.click();
         policyPanel.shouldBe(visible);
+        refresh();
     }
 
     public void pushAppGalleryButton() {

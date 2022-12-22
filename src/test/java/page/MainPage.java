@@ -12,6 +12,15 @@ public class MainPage {
 
     private static final SelenideElement heading = $$(".navbar-nav ").find(exactText("Главная"));
 
+    private static final SelenideElement sidebarButton = $("#header_userName");
+    private static final SelenideElement logoutButton = $("#m_userSidebar .m_userSidebar_userInfo_data h4");
+
+    public void logOut() {
+        sidebarButton.click();
+        logoutButton.click();
+    }
+
+
 //    public MainPage() {
 //        heading.shouldBe(visible, Duration.ofSeconds(10));
 //    }

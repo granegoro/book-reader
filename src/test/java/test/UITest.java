@@ -27,12 +27,15 @@ public class UITest {
     public void shouldSuccessfullySubscribeWithTestCredentials() {
         var loginPage = open(sut, LoginPage.class);
         var mainPage = loginPage.performSubscription();
+        mainPage.logOut();
     }
 
     @Test
     public void shouldSuccessfullyLoginViaYellowButtonWithTestCredentials() {
         var loginPage = open(sut, LoginPage.class);
         var mainPage = loginPage.performLoginViaYellowButton();
+        mainPage.logOut();
+
     }
 
     @Test
