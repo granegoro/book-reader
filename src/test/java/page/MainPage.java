@@ -9,11 +9,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class MainPage {
-
-    private static final SelenideElement heading = $$(".navbar-nav ").find(exactText("Главная"));
+    private final SelenideElement heading = $("#search-top-section");
 
     private static final SelenideElement sidebarButton = $("#header_userName");
     private static final SelenideElement logoutButton = $("#m_userSidebar .m_userSidebar_userInfo_data h4");
+
+    public void verifyIsMainPage(){
+        heading.shouldBe(visible);
+    }
 
     public LoginPage logOut() {
         sidebarButton.click();

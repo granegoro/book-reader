@@ -56,6 +56,20 @@ public class LoginPage {
     private static final SelenideElement successfulSubscriptionMessage  = $(byText("Поздравляем!"));
     private static final SelenideElement closeSubscriptionPanel  =
             $(".congratsArea_inner .m_login_line3_subscribeSuccess_button");
+
+    public void enterPhoneNumberForGherkin(String phoneNumber) {
+        loginButtonYellow.click();
+        enterWithSmsCodeButton.click();
+        phoneNumberField.setValue(phoneNumber);
+        requestCodeButton.click();
+    }
+
+    public MainPage enterCodeForGherkin(String code) {
+        smsCodeField.setValue(code);
+        verifyCodeButton.click();
+        return new MainPage();
+    }
+
     public static void performLogin() {
 
         phoneNumberField.setValue(System.getProperty("phoneNumber"));
